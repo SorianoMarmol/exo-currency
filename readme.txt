@@ -5,10 +5,16 @@ Pasos para lanzar el proyecto Django
 
 Se recomienda usar virtualenv.
 
+1) crear virtualenv
+
 sudo apt-get install python3-venv
 python3 -m venv exo_investing
+
+2) una vez creado, localizar el activate para activarlo y comenzar a trabajar
+
 cd ~/virtualenvs/exo_investing/
 source exo_investing/bin/activate
+
 
 Instalar dependencias
 
