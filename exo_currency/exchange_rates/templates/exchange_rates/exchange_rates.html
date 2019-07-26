@@ -13,17 +13,10 @@
     <link rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap-theme.min.css"/>
 
-    <script src="https://d3js.org/d3.v4.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.4.1/jquery.twbsPagination.min.js"></script>
-
-    <script src="{% static 'exchange_rates/js/app.js' %}"></script>
-    <script src="{% static 'exchange_rates/js/graphs.js' %}"></script>
-    <script src="{% static 'exchange_rates/js/tables.js' %}"></script>
-    <script src="{% static 'exchange_rates/js/stories.js' %}"></script>
-    <!-- Add additional CSS in static file -->
     <link rel="stylesheet" href="{% static 'exchange_rates/css/styles.css' %}">
+    <script type="text/javascript" src="{% static "fusioncharts/fusioncharts.js" %}"></script>
+    <script type="text/javascript" src="{% static "fusioncharts/themes/fusioncharts.theme.fint.js" %}"></script>
+   	<script type="text/javascript" src="{% static "fusioncharts/themes/fusioncharts.theme.fusion.js" %}"></script>
     <style>
         .line {
             fill: none;
@@ -36,38 +29,7 @@
 <body>
 
 <div class="container">
-    <div class="row">
-        <div class="col-sm-12">
-            <h3 class="text-center">Exchange Rates Evolution</h3>
-            <hr/>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-9" id="currencies">
-            <div class="inner">
-                <table id="latest-rates">
-                    <caption>Global Exchange Rates based on {{ base_currency.name }}
-                    </caption>
-                </table>
-            </div>
-            <div id="histories">
-                <div class="inner">
-                    <svg class="hidden-sm hidden-xs"></svg>
-                    <div id="controls">
-                        <div id="base-currency-select">Base Currency:
-                            <select class="currency-select">
-                                {% for currency in currencies %}
-                                <option value="{{currency.code}}" {% if currency.currency_code == 'EUR' %}
-                                    selected="selected" {% endif %} >{{currency.name}}
-                                </option>
-                                {% endfor %}
-                            </select>
-                        </div>
-      
-                    </div>
-
-                </div>
-            </div>
-        </div>
+      <div id="chart-1">{{ chart|safe }}</div>
+</div>
 </body>
 </html>

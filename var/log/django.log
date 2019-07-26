@@ -676,3 +676,42 @@ Traceback (most recent call last):
   File "/home/rsoriano/virtualenvs/exo_investing/exo_investing/lib/python3.5/site-packages/django/db/models/sql/query.py", line 1076, in build_lookup
     raise FieldError('Related Field got invalid lookup: {}'.format(lookup_name))
 django.core.exceptions.FieldError: Related Field got invalid lookup: currency_code
+2019-07-26 14:11:42,398 ERROR: django.request 19794 139881264391936 Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/rsoriano/virtualenvs/exo_investing/exo_investing/lib/python3.5/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/rsoriano/virtualenvs/exo_investing/exo_investing/lib/python3.5/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/rsoriano/virtualenvs/exo_investing/exo_investing/lib/python3.5/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/rsoriano/virtualenvs/exo_investing/exo_currency/exchange_rates/views.py", line 28, in exchange_rate_evolution
+    base_rate = rates.filter(source_currency__code=base).select_related().first()
+  File "/home/rsoriano/virtualenvs/exo_investing/exo_investing/lib/python3.5/site-packages/django/db/models/query.py", line 936, in select_related
+    raise TypeError("Cannot call select_related() after .values() or .values_list()")
+TypeError: Cannot call select_related() after .values() or .values_list()
+2019-07-26 14:12:32,112 ERROR: django.request 20588 140357828413184 Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/rsoriano/virtualenvs/exo_investing/exo_investing/lib/python3.5/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/rsoriano/virtualenvs/exo_investing/exo_investing/lib/python3.5/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/rsoriano/virtualenvs/exo_investing/exo_investing/lib/python3.5/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/rsoriano/virtualenvs/exo_investing/exo_currency/exchange_rates/views.py", line 27, in exchange_rate_evolution
+    rates = CurrencyExchangeRate.objects.all().values_list('valuation_date', 'rate_value', flat=True)
+  File "/home/rsoriano/virtualenvs/exo_investing/exo_investing/lib/python3.5/site-packages/django/db/models/query.py", line 753, in values_list
+    raise TypeError("'flat' is not valid when values_list is called with more than one field.")
+TypeError: 'flat' is not valid when values_list is called with more than one field.
+2019-07-26 14:12:32,802 ERROR: django.request 20588 140357828413184 Internal Server Error: /
+Traceback (most recent call last):
+  File "/home/rsoriano/virtualenvs/exo_investing/exo_investing/lib/python3.5/site-packages/django/core/handlers/exception.py", line 35, in inner
+    response = get_response(request)
+  File "/home/rsoriano/virtualenvs/exo_investing/exo_investing/lib/python3.5/site-packages/django/core/handlers/base.py", line 128, in _get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/home/rsoriano/virtualenvs/exo_investing/exo_investing/lib/python3.5/site-packages/django/core/handlers/base.py", line 126, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/home/rsoriano/virtualenvs/exo_investing/exo_currency/exchange_rates/views.py", line 27, in exchange_rate_evolution
+    rates = CurrencyExchangeRate.objects.all().values_list('valuation_date', 'rate_value', flat=True)
+  File "/home/rsoriano/virtualenvs/exo_investing/exo_investing/lib/python3.5/site-packages/django/db/models/query.py", line 753, in values_list
+    raise TypeError("'flat' is not valid when values_list is called with more than one field.")
+TypeError: 'flat' is not valid when values_list is called with more than one field.

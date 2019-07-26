@@ -1,0 +1,144 @@
+body {
+    background: #87aec5;
+}
+
+.container {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: white;
+}
+
+#currencies {
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+#currencies table#latest-rates {
+    font-size: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#currencies table#latest-rates td {
+    padding: 0px;
+    padding-left: 10px;
+    margin: 0px;
+    text-align: left;
+}
+
+#currencies table#latest-rates td.flag {
+    padding-left: 10px;
+}
+
+#currencies table#latest-rates td.currency-rate {
+    padding-right: 10px;
+    text-align: right;
+}
+
+#currencies table#latest-rates td.country-name {
+    padding-left: 10px;
+    text-align: left;
+}
+
+#currencies table#latest-rates td.currency-name {
+    padding-left: 10px;
+    text-align: left;
+}
+
+#currencies table#latest-rates td.currency-rate {
+    padding-left: 10px;
+    text-align: left;
+}
+
+#currencies table#latest-rates td img {
+    width: 20px;
+    height:15px;
+    vertical-align: middle;
+}
+
+#base-currency-select {
+    margin: 20px auto;
+}
+
+.sidebar-nav {
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+}
+
+#histories svg {
+    display: block;
+    margin: 20px auto;
+}
+
+#histories table {
+    font-size: 90%;
+    width: auto;
+    margin: 20px auto;
+}
+
+#histories tbody {
+    margin-left: 4px;
+}
+
+/* override bootstrap default */
+#histories .table>tbody+tbody {
+    border-top: inherit;
+}
+
+#histories table td.date {
+    border-left: 1px solid #ddd;
+}
+
+#histories table td.rate {
+    border-right: 1px solid #ddd;
+}
+
+#histories table tbody tr:last-child {
+    border-bottom: 1px solid #ddd;
+}
+
+#histories tfoot td {
+    border: none;
+}
+
+#histories table caption {
+    text-align: center;
+}
+
+#controls {
+    text-align: center;
+}
+
+fieldset#news legend {
+    font-size: initial;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    color: #777;
+    text-align: left;
+}
+
+#stories {
+    margin-top: 20px;
+    font-size: 90%;
+    border-left: 1px solid #e5e5e5;
+}
+
+.pagination>.active>a,
+.pagination>.active>a:focus,
+.pagination>.active>a:hover,
+.pagination>.active>span,
+.pagination>.active>span:focus,
+.pagination>.active>span:hover {
+    z-index: 3;
+    color: #fff;
+    cursor: default;
+    background-color: #aaa;
+    border-color: #aaa;
+}
+
+footer#page-foot {
+    font-size: 80%;
+    text-align: center;
+    margin-bottom: 20px;
+}
