@@ -1,4 +1,4 @@
-Toda la información será remitida vía documento
+Toda la información será remitida vía documento.
 
 
 Pasos para lanzar el proyecto Django
