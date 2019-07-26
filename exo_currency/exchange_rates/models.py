@@ -62,6 +62,6 @@ class CurrencyExchangeRate(models.Model):
             'rate_value': str(self.rate_value),
             'valuation_date': str(self.valuation_date),
         }
-        if getattr(settings, "SHOW_PROVIDER"):
+        if getattr(settings, "SHOW_PROVIDER") and self.provider:
             data["provider"] = self.provider.name
         return data

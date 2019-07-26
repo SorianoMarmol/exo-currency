@@ -20,8 +20,8 @@ class CurrencyAdmin(BaseAdmin):
 
 
 class CurrencyExchangeRateAdmin(BaseAdmin):
-    list_display = ('source_currency', 'exchanged_currency', 'valuation_date', 'rate_value')
-    list_filter = ['source_currency', 'exchanged_currency']
+    list_display = ('source_currency', 'exchanged_currency', 'valuation_date', 'rate_value', 'provider')
+    list_filter = ['source_currency', 'provider', 'exchanged_currency']
     search_fields = ('source_currency', 'exchanged_currency', 'valuation_date', 'rate_value')
     ordering = ('-valuation_date', '-rate_value')
     # list_select_related = ('source_currency', 'exchanged_currency',)
