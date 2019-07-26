@@ -1,4 +1,4 @@
-Toda la información será remitida vía documento.
+Toda la información se encuentra en: "Documentación_ExoCurrency_v1.pdf"
 
 
 Pasos para lanzar el proyecto Django
