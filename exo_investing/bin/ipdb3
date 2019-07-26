@@ -1,0 +1,10 @@
+#!/home/rsoriano/virtualenvs/exo_investing/exo_investing/bin/python3
+# EASY-INSTALL-ENTRY-SCRIPT: 'ipdb==0.12','console_scripts','ipdb3'
+__requires__ = 'ipdb==0.12'
+import sys
+from pkg_resources import load_entry_point
+
+if __name__ == '__main__':
+    sys.exit(
+        load_entry_point('ipdb==0.12', 'console_scripts', 'ipdb3')()
+    )
