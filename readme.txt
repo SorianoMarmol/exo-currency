@@ -20,12 +20,29 @@ Instalar dependencias
 
 pip install -r requirements.txt
 
+Hay un warning que no afecta para poder trabajar, es el siguiente:
+
+Building wheels for collected packages: unicode-slugify
+ Running setup.py bdist_wheel for unicode-slugify ... error
+ Complete output from command /home/rsoriano/exo_investing/bin/python3 -u -c "import setuptools, tokenize;__file__='/tmp/pip-build-suh28xwu/unicode-slugify/setup.py';exec(compile(getattr(tokenize, 'open', open)(__file__).read().replace('\r\n', '\n'), __file__, 'exec'))" bdist_wheel -d /tmp/tmpcf03ufmnpip-wheel- --python-tag cp35:
+ usage: -c [global_opts] cmd1 [cmd1_opts] [cmd2 [cmd2_opts] ...]
+    or: -c --help [cmd1 cmd2 ...]
+    or: -c --help-commands
+    or: -c cmd --help
+ 
+ error: invalid command 'bdist_wheel'
+ 
+ ----------------------------------------
+ Failed building wheel for unicode-slugify
+ Running setup.py clean for unicode-slugify
+
+No afecta para trabajar y si se vuelve a ejecutar el pip install no vuelve a aparecer
+
 
 Migrar y crear super usuario
 
 Dentro de la carpeta exo-currency
 
-python manage.py syncdb
 python manage.py migrate
 python manage.py collectstatic
 python manage.py createsuperuser
