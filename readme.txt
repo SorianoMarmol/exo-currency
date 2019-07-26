@@ -1,71 +1,46 @@
-NOTAS INTERNAS
-* https://stackoverflow.com/questions/54168569/show-resulting-json-from-api-in-simple-django-template
-
-* Create project + app
-django-admin startproject exo_currency
-cd exo_currency/
-django-admin startapp exchange_rates
-
-python manage.py migrate
-python manage.py createsuperuser --email sorianomarmol@gmail.com --username admin
-
-python manage.py makemigrations
+Toda la información será remitida vía documento
 
 
+Pasos para lanzar el proyecto Django
 
-* Create virtual env
+Se recomienda usar virtualenv.
 
 sudo apt-get install python3-venv
 python3 -m venv exo_investing
-
-* Activate virtual env
-
 cd ~/virtualenvs/exo_investing/
 source exo_investing/bin/activate
 
-* Requirements
-
-Django~=2.0.13
-djangorestframework==3.10.0
-requests==2.22.0
-pytest-django==3.5.1
-  pytest==5.0.1
-django-categories==1.6.1
-python-dateutil==2.8.0
+Instalar dependencias
 
 pip install -r requirements.txt
 
-* example currencies
 
-Before first migrate:
+Migrar y crear super usuario
 
-You can override EXAMPLE_CURRENCIES in settings.py 
-EXAMPLE_CURRENCIES = {
-    "EUR": "Euro",
-    "USD": "Dollar(US)",
-    "GBP": "Pound sterling",
-    "BRL": "Brazilian real"
-}
-
-
+python manage.py syncdb
 python manage.py migrate
-python manage.py createsuperuser 
+python manage.py collectstatic
+python manage.py createsuperuser
 
-* runserver, login, and set the Providers:
-** http://127.0.0.1:8000/admin/exchange_rates/provider/add/
+La migración nº 2 cargará las monedas de ejemplo. Se encuentran en settings (EXAMPLE_CURRENCIES)
 
-* Pruebas básicas
+Lanzar servidor, acceder al panel de administración, y dar de alta los Provider (uno por cada adapter)
 
-Para realizar las pruebas, se puede usar cualquier backend/adapter ya que siempre da prioridad al orden y lo intenta con todos
+http://127.0.0.1:8000/admin/exchange_rates/provider/add/
+Ambos deben estar activo
+Se recomienda establecer en el orden primero el de Fixer
 
-In [3]: from exchange_rates.backends.fixer import * 
-   ...: backend = FixerExchangeProviderBackend() 
-   ...:  
-   ...:  
-   ...: backend.get_rates(source_currency='CHF', exchanged_currency='USD', date_from = '2019-07-14')
 
-con el propio base también se puede probar
 
-In [4]: from exchange_rates.backends.base import *
-In [5]: backend = BaseExchangeProviderBackend()
-In [6]: backend.get_rates(source_currency='CHF', exchanged_currency='USD', date_from = '2019-07-13')   
+
+Algunos settings a destacar
+
+FIXER_FORCE_EXCEPTION
+Por defecto a False, permite forzar una excepción el Fixer para probar el siguiente Provider (poder probar como responde ante fallos, el orden, el mock, etc.)
+SHOW_PROVIDER
+Devolverá el provider con los datos. 
+Poder ver la fuente de los datos almacenados
+ RANDOM_RANGE_INIT / RANDOM_RANGE_END
+Valores aleatorios para los Rates del mock
+
+Cuando esté todo a punto, se puede acceder a http://127.0.0.1:8000/api/v1/currency_rates/ que debe devolver los datos del día.
