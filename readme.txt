@@ -17,6 +17,8 @@ pip install -r requirements.txt
 
 Migrar y crear super usuario
 
+Dentro de la carpeta exo-currency
+
 python manage.py syncdb
 python manage.py migrate
 python manage.py collectstatic
